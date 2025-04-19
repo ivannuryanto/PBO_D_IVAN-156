@@ -1,5 +1,7 @@
 public class Admin extends User {
+    @SuppressWarnings("unused")
     private String username;
+    @SuppressWarnings("unused")
     private String password;
     private final String validUsername = "admin148";
     private final String validPassword = "password148";

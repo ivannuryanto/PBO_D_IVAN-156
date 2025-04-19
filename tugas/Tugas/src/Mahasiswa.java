@@ -1,6 +1,6 @@
 public class Mahasiswa extends User {
-    private static final String VALID_NAMA = "Ivan Nuryanto";
-    private static final String VALID_NIM = "202410370110156";
+    private final String VALID_NAMA = "Ivan Nuryanto";
+    private final String VALID_NIM = "202410370110156";
 
     public Mahasiswa(String nama, String nim) {
         super(nama, nim);
