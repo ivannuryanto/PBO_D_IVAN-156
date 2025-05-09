@@ -1,10 +1,11 @@
 package com.praktikum.users;
 
+
 import com.praktikum.actions.MahasiswaActions;
 
 import java.util.Scanner;
 
-public class Mahasiswa extends User implements MahasiswaActions {
+public class Mahasiswa extends User implements MahasiswaActions{//kalo mau 2 interface, pisah pake koma
     private final Scanner scanner; 
 
     public Mahasiswa(String nama, String nim) {
