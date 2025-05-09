@@ -5,11 +5,11 @@ import com.praktikum.actions.MahasiswaActions;
 import java.util.Scanner;
 
 public class Mahasiswa extends User implements MahasiswaActions {
-    private final Scanner scanner; // Declare a single Scanner instance
+    private final Scanner scanner; 
 
     public Mahasiswa(String nama, String nim) {
         super(nama, nim);
-        this.scanner = new Scanner(System.in); // Initialize Scanner
+        this.scanner = new Scanner(System.in); 
     }
 
     @Override
@@ -27,7 +27,7 @@ public class Mahasiswa extends User implements MahasiswaActions {
             System.out.println("0. Logout");
             System.out.print("Pilih menu: ");
             pilihan = scanner.nextInt();
-            scanner.nextLine(); // Consume newline
+            scanner.nextLine(); 
 
             switch (pilihan) {
                 case 1 -> reportItem();
