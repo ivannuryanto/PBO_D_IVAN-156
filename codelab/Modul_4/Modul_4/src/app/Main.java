@@ -5,12 +5,12 @@ import perpustakaan.*;
 public class Main {
     public static void main(String[] args) {
         Buku buku1 = new NonFiksi("Isaac Newton", "Tan Malaka", "Sejarah & Ilmu Pengetahuan");
-        Buku buku2 = new Fiksi("Spiderman", "\tJ. K. Rowling", "Fantasy");
+        Buku buku2 = new Fiksi("Spiderman", "J. K. Rowling", "Fantasy");
 
         buku1.displayInfo();
         buku2.displayInfo();
 
-        Anggota anggota1 = new Anggota("Ivan Nuryanto", "156");
+        Anggota anggota1 = new Anggota("Rayhan Amrullah", "148");
         Anggota anggota2 = new Anggota("Brillian Daniar Kautama", "166");
 
         anggota1.displayInfo();
