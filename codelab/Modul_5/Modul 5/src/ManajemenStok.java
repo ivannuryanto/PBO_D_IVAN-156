@@ -5,7 +5,6 @@ import java.util.Scanner;
 public class ManajemenStok  {
     public static void main(String[] args) {
         ArrayList<Barang> daftarBarang = new ArrayList<>();
-        // Data awal untuk pengujian
         daftarBarang.add(new Barang("Pocari", 50));
         daftarBarang.add(new Barang("Green Sand", 30));
         daftarBarang.add(new Barang("Hydro Coco", 20));
@@ -23,15 +22,14 @@ public class ManajemenStok  {
             int opsi;
             try {
                 opsi = scanner.nextInt();
-                scanner.nextLine(); // konsumsi newline
+                scanner.nextLine();
             } catch (InputMismatchException e) {
                 System.out.println("Input opsi harus berupa angka!");
                 scanner.nextLine();
                 continue;
             }
 
-            if (opsi == 1) {
-                // Tambah Barang Baru
+            if (opsi == 1) {    
                 System.out.print("Masukkan nama barang: ");
                 String nama = scanner.nextLine();
                 System.out.print("Masukkan stok awal: ");
@@ -45,7 +43,6 @@ public class ManajemenStok  {
                     scanner.nextLine();
                 }
             } else if (opsi == 2) {
-                // Tampilkan Semua Barang
                 if (daftarBarang.isEmpty()) {
                     System.out.println("Stok barang kosong.");
                 } else {
@@ -57,7 +54,6 @@ public class ManajemenStok  {
                     System.out.println("----------------------");
                 }
             } else if (opsi == 3) {
-                // Kurangi Stok Barang
                 if (daftarBarang.isEmpty()) {
                     System.out.println("Stok barang kosong.");
                     continue;
