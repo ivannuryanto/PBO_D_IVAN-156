@@ -1,16 +1,17 @@
 package com.praktikum.users;
 
-
 import com.praktikum.actions.MahasiswaActions;
-
+import com.praktikum.main.LoginSystem;
+import com.praktikum.models.Item;
 import java.util.Scanner;
 
-public class Mahasiswa extends User implements MahasiswaActions{//kalo mau 2 interface, pisah pake koma
-    private final Scanner scanner; 
+public class Mahasiswa extends User implements MahasiswaActions {
+    private final Scanner scanner;
+    int pilihan;
 
     public Mahasiswa(String nama, String nim) {
         super(nama, nim);
-        this.scanner = new Scanner(System.in); 
+        this.scanner = new Scanner(System.in);
     }
 
     @Override
@@ -20,16 +21,20 @@ public class Mahasiswa extends User implements MahasiswaActions{//kalo mau 2 int
 
     @Override
     public void displayAppMenu() {
-        int pilihan;
         do {
             System.out.println("\n== Menu Mahasiswa ==");
             System.out.println("1. Laporkan Barang Temuan/Hilang");
             System.out.println("2. Lihat Daftar Laporan");
             System.out.println("0. Logout");
             System.out.print("Pilih menu: ");
-            pilihan = scanner.nextInt();
-            scanner.nextLine(); 
-
+            try {
+                pilihan = scanner.nextInt();
+                scanner.nextLine();
+            } catch (Exception e) {
+                System.out.println("Input harus berupa angka!");
+                scanner.nextLine();
+                continue;
+            }
             switch (pilihan) {
                 case 1 -> reportItem();
                 case 2 -> viewReportedItems();
@@ -47,13 +52,23 @@ public class Mahasiswa extends User implements MahasiswaActions{//kalo mau 2 int
         String deskripsi = scanner.nextLine();
         System.out.print("Lokasi Terakhir/Ditemukan: ");
         String lokasi = scanner.nextLine();
+        Item item = new Item(namaBarang, deskripsi, lokasi, "Reported");
+        LoginSystem.reportedItems.add(item);
         System.out.println("Laporan berhasil dibuat untuk barang: " + namaBarang);
-        System.out.println("Deskripsi: " + deskripsi);
-        System.out.println("Lokasi: " + lokasi);
     }
 
     @Override
     public void viewReportedItems() {
-        System.out.println(">> Fitur Lihat Laporan Belum Tersedia <<");
+        boolean ada = false;
+        for (Item item : LoginSystem.reportedItems) {
+            if ("Reported".equals(item.getStatus())) {
+                ada = true;
+                System.out.println(
+                        "- " + item.getItemName() + " | " + item.getDescription() + " | Lokasi: " + item.getLocation());
+            }
+        }
+        if (!ada) {
+            System.out.println(">> Belum ada laporan barang. <<");
+        }
     }
 }
