@@ -4,7 +4,7 @@ public class Item {
     private String itemName;
     private String description;
     private String location;
-    private String status; // "Reported" atau "Claimed"
+    private String status; 
 
     public Item(String itemName, String description, String location, String status) {
         this.itemName = itemName;

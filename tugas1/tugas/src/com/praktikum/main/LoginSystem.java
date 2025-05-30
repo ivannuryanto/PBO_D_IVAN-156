@@ -15,6 +15,7 @@ public class LoginSystem {
         userList.add(new Mahasiswa("Ivan Nuryanto", "202410370110156"));
         userList.add(new Mahasiswa("Brillian Daniar Kautama", "202410370110166"));
 
+        reportedItems.add(new Item("Laptop", "Laptop hilang di kampus", "Ruang Kelas A", "Reported"));
         User user = null;
         while (user == null) {
             System.out.println("== SISTEM LOGIN ==");
@@ -52,7 +53,7 @@ public class LoginSystem {
     public static User cariUser(String input1, String input2, boolean isAdmin) {
         for (User u : userList) {
             if (isAdmin && u instanceof Admin) {
-                if (((Admin) u).login(input1, input2))
+                if (((Admin) u).login(input1, input2))//jk true admin
                     return u;
             } else if (!isAdmin && u instanceof Mahasiswa) {
                 if (((Mahasiswa) u).login(input1, input2))

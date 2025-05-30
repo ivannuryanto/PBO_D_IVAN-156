@@ -68,7 +68,7 @@ public class Mahasiswa extends User implements MahasiswaActions {
             }
         }
         if (!ada) {
-            System.out.println(">> Belum ada laporan barang. <<");
+            System.out.println(">> Belum ada laporan barang. <<");//Melakukan loop pada semua item di LoginSystem.reportedItems.
         }
     }
 }
