@@ -1,6 +1,6 @@
 package main.java.com.praktikum.actions;
 
-public interface MahasiswaActions {
+public interface MahasiswaActions{
     void reportItem();
 
     void viewReportedItems();

@@ -1,10 +1,5 @@
 package main.java.com.praktikum.users;
 
-public class User {
-
-}
-package main.java.com.praktikum.users;
-
 public abstract class User {
     private String nama;
     private String nim;
