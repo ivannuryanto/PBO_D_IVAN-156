@@ -1,10 +1,5 @@
 package main.java.com.praktikum.gui;
 
-public class AdminDashboard {
-
-}
-package main.java.com.praktikum.gui;
-
 import javafx.geometry.Insets;
 import javafx.scene.Scene;
 import javafx.scene.control.*;

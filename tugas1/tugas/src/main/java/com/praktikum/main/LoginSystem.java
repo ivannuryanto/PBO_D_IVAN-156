@@ -1,7 +1,7 @@
 package main.java.com.praktikum.main;
 
-import main.java.com.praktikum.users.*;
 import main.java.com.praktikum.data.*;
+import main.java.com.praktikum.users.*;
 
 public class LoginSystem {
     public LoginSystem() {
