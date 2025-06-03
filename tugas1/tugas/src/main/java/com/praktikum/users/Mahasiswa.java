@@ -1,8 +1,8 @@
-package com.praktikum.users;
+package main.java.com.praktikum.users;
 
-import com.praktikum.actions.MahasiswaActions;
-import com.praktikum.main.LoginSystem;
-import com.praktikum.models.Item;
+import main.java.com.praktikum.actions.MahasiswaActions;
+import main.java.com.praktikum.data.DataStore;
+import main.java.com.praktikum.data.Item;
 import java.util.Scanner;
 
 public class Mahasiswa extends User implements MahasiswaActions {
@@ -25,7 +25,7 @@ public class Mahasiswa extends User implements MahasiswaActions {
             System.out.println("\n== Menu Mahasiswa ==");
             System.out.println("1. Laporkan Barang Temuan/Hilang");
             System.out.println("2. Lihat Daftar Laporan");
-            System.out.println("0. Logout");
+            System.out.println("0. Kembali");
             System.out.print("Pilih menu: ");
             try {
                 pilihan = scanner.nextInt();
@@ -53,14 +53,15 @@ public class Mahasiswa extends User implements MahasiswaActions {
         System.out.print("Lokasi Terakhir/Ditemukan: ");
         String lokasi = scanner.nextLine();
         Item item = new Item(namaBarang, deskripsi, lokasi, "Reported");
-        LoginSystem.reportedItems.add(item);
+        DataStore.reportedItems.add(item);
         System.out.println("Laporan berhasil dibuat untuk barang: " + namaBarang);
     }
 
     @Override
     public void viewReportedItems() {
         boolean ada = false;
-        for (Item item : LoginSystem.reportedItems) {
+        System.out.println("\n== Daftar Laporan Barang ==");
+        for (Item item : DataStore.reportedItems) {
             if ("Reported".equals(item.getStatus())) {
                 ada = true;
                 System.out.println(
@@ -68,7 +69,7 @@ public class Mahasiswa extends User implements MahasiswaActions {
             }
         }
         if (!ada) {
-            System.out.println(">> Belum ada laporan barang. <<");//Melakukan loop pada semua item di LoginSystem.reportedItems.
+            System.out.println(">> Belum ada laporan barang. <<");
         }
     }
 }

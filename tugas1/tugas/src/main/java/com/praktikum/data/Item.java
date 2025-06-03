@@ -1,10 +1,10 @@
-package com.praktikum.models;
+package main.java.com.praktikum.data;
 
 public class Item {
     private String itemName;
     private String description;
     private String location;
-    private String status; 
+    private String status; // "Reported" atau "Claimed"
 
     public Item(String itemName, String description, String location, String status) {
         this.itemName = itemName;
